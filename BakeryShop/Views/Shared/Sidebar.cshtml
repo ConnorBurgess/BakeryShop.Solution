@@ -1,40 +1,56 @@
-<div class="min-h-screen flex flex-row bg-green-200 absolute transform hover:scale-x-110">
-  <div class="flex flex-col w-56 bg-blue-200 rounded-r-3xl overflow-hidden">
+<div class="min-h-screen flex flex-row bg-red-200 absolute transform hover:scale-x-110">
+  <div class="flex flex-col w-56 bg-red-200 rounded-r-3xl overflow-hidden">
     <div class="flex items-center justify-center h-20 shadow-md">
-      <h1 class=" ml-3 text-3xl text-green-300"> Bakery Pages </h1>
+      <h1 class=" ml-3 text-3xl text-black"> Bakery Pages </h1>
     </div>
     <ul class="flex flex-col py-4">
+      @if (User.Identity.IsAuthenticated){ 
+        int nameEnd = 0;
+        for (int i = 0; i < User.Identity.Name.Length; i++) {
+          if (User.Identity.Name[i] == '@') {
+            nameEnd = i;
+          }
+        }
+        <p class="text-xl ml-3">Hello @User.Identity.Name.Substring(0, nameEnd)!</p>
+        @using (Html.BeginForm("LogOff", "Account"))
+        {
+        <input type="submit" class="ml-6 btn btn-danger scale-50" value="Log out" />
+        }
+        }
+        else {
+         <p class="text-xl ml-6">@Html.ActionLink("Create Account", "Register", "Account")</p>
+         <p class="text-xl ml-6">@Html.ActionLink("Sign In", "Login", "Account")</p>
+        }
       <li>
         <a href="/" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-          <span class="inline-flex items-center justify-center h-12 w-12 text-3xl text-red-400"><i class="bx bx-home"></i></span>
-          <span class="text-lg font-medium text-white">Home</span>
+          <span class="inline-flex items-center justify-center h-12 w-12 text-3xl text-blue-700"><i class="bx bx-home"></i></span>
+          <span class="text-lg font-medium text-black">Home</span>
         </a>
       </li>
       <li>
         <a href="/Flavors/" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-          <span class="inline-flex items-center justify-center h-12 w-12 text-3xl text-green-300"><i class="bx bx-male"></i></span>
-          <span class="text-lg font-medium text-white">Flavors</span>
+          <span class="inline-flex items-center justify-center h-12 w-12 text-3xl text-blue-700"><i class="bx bx-dish"></i></span>
+          <span class="text-lg font-medium text-black">Flavors</span>
         </a>
       </li>
       <li>
         <a href="/Treats/" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-          <span class="inline-flex items-center justify-center h-12 w-12 text-3xl text-purple-400"><i class="bx bxs-factory"></i></span>
-          <span class="text-lg font-medium text-white">Treats</span>
+          <span class="inline-flex items-center justify-center h-12 w-12 text-3xl text-blue-700"><i class="bx bxs-cookie"></i></span>
+          <span class="text-lg font-medium text-black">Treats</span>
         </a>
       </li>
       <li>
         <a href="/Flavors/Create" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-          <span class="inline-flex items-center justify-center h-12 w-12 text-3xl text-blue-300"><i class="bx bx-user-plus"></i></span>
-          <span class="text-lg font-medium text-white">New Flavor</span>
+          <span class="inline-flex items-center justify-center h-12 w-12 text-3xl text-blue-700"><i class="bx bx-fridge"></i></span>
+          <span class="text-lg font-medium text-black">New Flavor</span>
         </a>
       </li>
       <li>
-        <a href="/Treats/Create" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-          <span class="inline-flex items-center justify-center h-12 w-12 text-3xl text-blue-300"><i class="bx bxs-bulb"></i></span>
-          <span class="text-lg font-medium text-white">New Treat</span>
+        <a href="/Flavors/Create" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+          <span class="inline-flex items-center justify-center h-12 w-12 text-3xl text-blue-700"><i class="bx bx-fridge"></i></span>
+          <span class="text-lg font-medium text-black">New Flavor</span>
         </a>
       </li>
-      <li>
     </ul>
   </div>
 </div>
