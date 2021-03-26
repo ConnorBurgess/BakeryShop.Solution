@@ -5,7 +5,7 @@
 	title="Bakery Shop" width="350" height="200"></p>
 
 ## Description  
-Project creates a bakery shop splash page with list of flavor categories and treats with full CRUD functionality. Utilizes .Net Core 5.0 / ASP.NET Core MVC and follows RESTful practices. Relational data is manipulated using ORM through Entity Framework Core in order to abstract and simplify SQL interaction. User authentication provided through ASP.NET Core Identity.
+Project creates a bakery web application with full CRUD functionality. Allows user to log in with user authentication through ASP.NET Core Identity and access authorized views to add flavors/treats in a many to many relationship. Utilizes .Net Core 5.0 / ASP.NET Core MVC and follows RESTful practices. Relational data is manipulated using ORM through Entity Framework Core in order to abstract and simplify SQL interaction. 
 * * *
 
 ## Technologies used
