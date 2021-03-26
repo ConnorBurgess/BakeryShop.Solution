@@ -1,0 +1,73 @@
+@{
+  Layout = "_Layout";
+}
+
+@model BakeryShop.Models.Treat
+@* 
+<div class="min-h-screen py-6 flex flex-col justify-center sm:py-12 bg-gray-400 bg-opacity-95">
+  <div class="relative py-3 max-w-screen mx-auto">
+    <div class="object-center ">
+      <div class="grid min-h-screen place-items-center">
+        <div class="w-11/12 p-12 bg-gray-600 sm:w-8/12 md:w-1/2 lg:w-5/12">
+                  <h1 class="py-3 text-3xl font-bold pb-3 text-center text-blue-300 bg-gray-800">Add Treat <hr></h1>
+          <h1 class="text-xl font-semibold">Adding an Treat is easy. <i class="text-yellow-300 bx bxs-bulb"></i> <br>
+            <br> <span class="font-normal text-blue-300">Please fill out the information below in order to add an
+              engineer to the database.</span> <i class='bx bxs-pointer'></i></h1>
+          <form class="mt-6">
+            <div class="flex justify-between gap-3">
+              <span class="w-1/2">
+                <label for="firstname" class="block text-xs font-semibold text-blue-300 uppercase">First name</label>
+                <input id="firstname" type="text" name="firstname" placeholder="Nikola" autocomplete="given-name"
+                  class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
+                  required />
+              </span>
+              <span class="w-1/2">
+                <label for="lastname" class="block text-xs font-semibold text-blue-300 uppercase">Last name</label>
+                <input id="lastname" type="text" name="lastname" placeholder="Tesla" autocomplete="family-name"
+                  class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
+                  required />
+              </span>
+            </div>
+            <label for="operational"
+              class="block mt-2 text-xs font-semibold text-blue-300 uppercase">Operational</label>
+            <input id="operational" class="object-left" type="checkbox" name="operational"
+              class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 focus:outline-none focus:bg-gray-300 focus:shadow-inner"
+              required />
+            <label for="malfunctioning"
+              class="block py-3 mt-2 text-xs font-semibold text-blue-300 uppercase">Malfunctioning</label>
+            <input id="malfunctioning" class="object-left" type="checkbox" name="malfunctioning"
+              class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 focus:outline-none focus:bg-gray-300 focus:shadow-inner"
+              required />
+            <label for="repaired" class="block mt-2 text-xs font-semibold text-blue-300 uppercase">Repaired</label>
+            <input type="checkbox" id="repaired" 
+              class="block object-left w-full p-3 mt-2 bg-gray-200 focus:outline-none focus:bg-gray-300 focus:shadow-inner"
+              required />
+            <button type="submit"
+              class="w-full py-3 mt-6 font-medium tracking-widest text-blue-300 uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none">
+              Add Treat
+            </button>
+          </form>
+        </div>
+      </div>
+      <h4>Add a new Treat to database</h4> *@
+<div class="min-h-screen py-6 flex flex-col justify-center sm:py-12 bg-gray-400">
+  <div class="relative py-3 max-w-screen mx-auto">
+    <div class="object-center ">
+      <h4>Add a new treat</h4>
+      @using (Html.BeginForm())
+      {
+        @Html.LabelFor(model => model.TreatName, "Treat Name: ")
+        @Html.TextBoxFor(model => model.TreatName)
+        @Html.LabelFor(model => model.Description, "Desc: ")
+        @Html.CheckBoxFor(model => model.Description, true)
+
+        @* @Html.LabelFor(model => model.Date, "Date ")
+          @Html.TextBoxFor(model => model.Date, new { @type = "date" }) *@
+
+
+        <input type="submit" value="Add new treat" />
+      }
+      <p>@Html.ActionLink("Return to treats index", "Index")</p>
+    </div>
+  </div>
+</div>
