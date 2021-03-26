@@ -1,0 +1,25 @@
+@{
+  Layout = "_Layout";
+}
+
+@model BakeryShop.Models.Flavor
+<div class="min-h-screen py-6 flex flex-col justify-center sm:py-12 bg-gray-400">
+  <div class="relative py-3 max-w-screen mx-auto">
+    <div class="object-center ">
+<h2>Add a Treat</h2>
+
+<h4>Add a treat to this flavor category: @Html.DisplayFor(model => model.FlavorName)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.FlavorId)
+
+    @Html.Label("Select Treat")
+    @Html.DropDownList("TreatId")
+
+    <input type="submit" value="Save" />
+}
+<p>@Html.ActionLink("Back to list", "Index")</p>
+</div>
+</div>
+</div>

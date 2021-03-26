@@ -1,0 +1,41 @@
+@{
+  Layout = "_Layout";
+}
+
+@model BakeryShop.Models.Flavor
+<div class="min-h-screen py-6 flex flex-col justify-center sm:py-12 bg-gray-400">
+  <div class="relative py-3 max-w-screen mx-auto">
+    <div class="object-center ">
+            <div class="shadow-lg bg-gray-600 rounded-md transform hover:translate-x-2 hover:shadow-2xl p-10">
+<h2 class="text-blue-300">Flavor Details</h2>
+<hr />
+<h3>Flavor: @Html.DisplayFor(model => model.FlavorName)</h3>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This Flavor does not have any Treats assigned yet</p>
+}
+else
+{
+  <h4>Treats assigned to @Model.FlavorName </h4>
+  <ol>
+  @foreach(var join in Model.JoinEntities)
+  {
+    <li>@join.Treat.TreatName</li>
+    @using (Html.BeginForm("DeleteTreat", "Flavors"))
+    {
+      @Html.Hidden("joinId", @join.FlavorTreatId)
+      <input class="text-red-600 bg-gray-700 rounded-sm" type="submit" value="Delete"/>
+    }
+  }
+  </ol>
+}
+
+<p class="text-blue-300">@Html.ActionLink("Back to Flavors Index", "Index")</p>
+<p class="text-blue-300">@Html.ActionLink("Edit Flavor", "Edit", new { id = Model.FlavorId })</p>
+<p class="text-blue-300">@Html.ActionLink("Remove Flavor", "Delete", new { id = Model.FlavorId })</p>
+<p class="text-blue-300">@Html.ActionLink("Add an Treat", "AddTreat", new { id = Model.FlavorId })</p>
+</div>
+</div>
+</div>
+</div>

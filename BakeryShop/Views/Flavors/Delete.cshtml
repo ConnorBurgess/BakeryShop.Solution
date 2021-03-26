@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@model BakeryShop.Models.Flavor
+<div class="min-h-screen py-6 flex flex-col justify-center sm:py-12 bg-gray-400">
+  <div class="relative py-3 max-w-screen mx-auto">
+    <div class="object-center ">
+      <h2>Are you sure you want to remove this Treat from database?</h2>
+
+      @Html.DisplayNameFor(model => model.EngineerName): @Html.DisplayFor(model => model.EngineerName)
+      @using (Html.BeginForm())
+      {
+        <input type="submit" value="Delete" />
+      }
+      @Html.ActionLink("Back to List", "Index")
+    </div>
+  </div>
+</div>
