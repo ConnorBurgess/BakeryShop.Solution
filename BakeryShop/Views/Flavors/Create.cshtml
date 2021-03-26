@@ -10,11 +10,12 @@
           <h1 class="py-3 text-3xl font-bold pb-3 text-center text-blue-300 bg-gray-800">Add Flavor
             <hr>
           </h1>
-          <h1 class="text-xl font-semibold">Adding a new flavor is simple. <i class="text-yellow-300 bx bxs-bulb"></i> <br>
+          <h1 class="text-xl font-semibold">Adding a new flavor is simple. <i class="text-yellow-300 bx bxs-bulb"></i>
+            <br>
             <br> <span class="font-normal text-blue-300">Please fill out the information below in order to add an
               flavor to the database.</span> <i class='bx bxs-pointer'></i>
           </h1>
-          <form class="mt-6">
+          <form class="mt-6" action="/Flavors/create/" method="post" >
             <div class="flex justify-between gap-3">
               <span class="w-1/2">
                 <label for="FlavorName" class="block text-xs font-semibold text-blue-300 uppercase">Flavor name</label>
@@ -25,33 +26,19 @@
             </div>
             <label for="assign-treat" class="py-3 block mt-2 text-xs font-semibold text-blue-300 uppercase">Assign
               Treat to Flavor</label>
-            <select
-              id="TreatId" class="form-control block object-left w-full p-3 mt-2 bg-gray-200 focus:outline-none focus:bg-gray-300 focus:shadow-inner" />
-              @foreach (var item in ViewBag.TreatId) {
-                <option>@item.TreatName</option>
-              }
+            <select id="TreatId"
+              class="form-control block object-left w-full p-3 mt-2 bg-gray-200 focus:outline-none focus:bg-gray-300 focus:shadow-inner" />
+            @foreach (var item in ViewBag.TreatId)
+            {
+              <option>@item.Text</option>
+            }
             </select>
-            <button type="submit"
+            <input type="submit"
               class="w-full py-3 mt-6 font-medium tracking-widest text-blue-300 uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none">
-              Add Flavor
-            </button>
+            </input>
           </form>
         </div>
       </div>
-      <h4>Add a new Flavor to database</h4>
-
-      @using (Html.BeginForm())
-      {
-        @* @Html.LabelFor(model => model.FlavorName)
-          @Html.TextBoxFor(model => model.FlavorName)
-
-          @Html.Label("Select Treat")
-          @Html.DropDownList("TreatId")
-
-          <input type="submit" value="Add Flavor" class="btn btn-default" /> *@
-      }
-
-
     </div>
   </div>
 </div>
