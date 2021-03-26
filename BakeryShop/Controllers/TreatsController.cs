@@ -1,15 +1,17 @@
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
 using BakeryShop.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace BakeryShop.Controllers
 {
+  [Authorize]
   public class TreatsController : Controller
   {
-    private readonly BakeryShopContext _db;
 
+    private readonly BakeryShopContext _db;
     public TreatsController (BakeryShopContext db)
     {
       _db = db;

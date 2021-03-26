@@ -4,20 +4,20 @@
 
 @using BakeryShop.Models;
 @model List<BakeryShop.Models.Flavor>;
-<div class="min-h-screen py-6 flex flex-col justify-center sm:py-12 bg-gray-400 bg-opacity-95">
+<div class="min-h-screen py-6 flex flex-col justify-center sm:py-12">
   <div class="relative py-3 max-w-screen mx-auto">
     <div class="object-center ">
-      <table class="shadow-lg bg-gray-600 rounded-md transform hover:translate-x-2 hover:shadow-2xl">
+      <table class="shadow-lg bg-gray-200 rounded-md transform hover:translate-x-2 hover:shadow-2xl">
         <tr>
-          <tr class="bg-gray-800"><td class=" text-center px-8 py-4"> <a href='/Treats/'><i class='text-5xl absolute right-6 bx bx-exit text-purple-400' ></a></i></a> Manage Flavors <i class='bx bxs-group'></i></td></tr>
-          <th class="bg-gray-600 text-blue-300 border text-left px-8 py-4">Flavor Name</th>
-          <th class="bg-gray-600 text-blue-300 border text-left px-8 py-4">Flavor</th>
-          <th class="bg-gray-600 text-blue-300 border text-left px-8 py-4">Treats assigned</th>
+          <tr class="bg-yellow-300"><td class=" text-center px-8 py-4"> <a href='/Treats/'><i class='text-5xl absolute right-6 bx bx-exit text-purple-400' ></a></i></a> Manage Flavors <i class='bx bxs-group'></i></td></tr>
+          <th class="bg-yellow-200 text-blue-400 border text-left px-8 py-4">Flavor Name</th>
+          <th class="bg-yellow-200 text-blue-400 border text-left px-8 py-4">Flavor Count</th>
+          <th class="bg-yellow-200 text-blue-400 border text-left px-8 py-4">Treats assigned</th>
         </tr>
         <tr>
-          <td class="border px-8 py-4 text-blue-300 animate-pulse"><a href='/Flavors/Create'>Add a new Flavor</a></td> 
-          <td class="border px-8 py-4"><i class="text-blue-300 bx bx-male"> = @Model.Count</i></td>
-          <td class="border px-8 py-4"><i class="text-blue-300 bx bxs-factory"> = @ViewBag.TreatTotal</i></td>
+          <td class="border px-8 py-4 text-blue-800 animate-pulse"><a href='/Flavors/Create'>Add a new Flavor</a></td> 
+          <td class="border px-8 py-4"><i class="text-blue-300 bx bx-dish"> = @Model.Count</i></td>
+          <td class="border px-8 py-4"><i class="text-blue-300 bx bxs-cookie"> = @ViewBag.TreatTotal</i></td>
         </tr>
 
         @if (@Model.Count == 0)
@@ -34,22 +34,22 @@
               @if (flavor.FlavorId < 5) {
               @for (int i = 0; i < flavor.FlavorId; i++)
               { 
-                <i class="text-green-400 bx bx-male"></i>
+                <i class="text-green-400 bx bx-dish"></i>
               }
               }
               @if (flavor.FlavorId >= 5) {
-                <i class="text-green-400 bx bx-male"># @flavor.FlavorId</i>
+                <i class="text-green-400 bx bx-dish"># @flavor.FlavorId</i>
               }
             </td>
             <td class="border px-8 py-4">
               @if (flavor.JoinEntities.Count < 5) {
               @for (int i = 0; i < flavor.JoinEntities.Count; i++)
               {
-                <i class="text-purple-400 bx bxs-factory"></i>
+                <i class="text-purple-400 bx bxs-cookie"></i>
               }
               }
               @if (flavor.JoinEntities.Count >= 5) {
-                <i class="text-green-400 bx bx-male"># @flavor.JoinEntities.Count</i>
+                <i class="text-green-400 bx bx-dish"># @flavor.JoinEntities.Count</i>
               }
             </td>
           </tr>
