@@ -2,7 +2,7 @@
   Layout = "_Layout";
 }
 
-@using Factory.Models;
+@using BakeryShop.Models;
 @model List<BakeryShop.Models.Flavor>;
 <div class="min-h-screen py-6 flex flex-col justify-center sm:py-12 bg-gray-400 bg-opacity-95">
   <div class="relative py-3 max-w-screen mx-auto">
@@ -25,31 +25,31 @@
           <h3>No Flavors added to database</h3>
         }
 
-        @foreach (Flavor engineer in Model)
+        @foreach (Flavor flavor in Model)
         {
           <tr>
-            <td class="border px-8 py-4">@Html.ActionLink($"{engineer.FlavorName}", "Details", new { id =
-            engineer.FlavorId })</td>
+            <td class="border px-8 py-4">@Html.ActionLink($"{flavor.FlavorName}", "Details", new { id =
+            flavor.FlavorId })</td>
             <td class="border px-8 py-4">
-              @if (engineer.FlavorId < 5) {
-              @for (int i = 0; i < engineer.FlavorId; i++)
+              @if (flavor.FlavorId < 5) {
+              @for (int i = 0; i < flavor.FlavorId; i++)
               { 
                 <i class="text-green-400 bx bx-male"></i>
               }
               }
-              @if (engineer.FlavorId >= 5) {
-                <i class="text-green-400 bx bx-male"># @engineer.FlavorId</i>
+              @if (flavor.FlavorId >= 5) {
+                <i class="text-green-400 bx bx-male"># @flavor.FlavorId</i>
               }
             </td>
             <td class="border px-8 py-4">
-              @if (engineer.JoinEntities.Count < 5) {
-              @for (int i = 0; i < engineer.JoinEntities.Count; i++)
+              @if (flavor.JoinEntities.Count < 5) {
+              @for (int i = 0; i < flavor.JoinEntities.Count; i++)
               {
                 <i class="text-purple-400 bx bxs-factory"></i>
               }
               }
-              @if (engineer.JoinEntities.Count >= 5) {
-                <i class="text-green-400 bx bx-male"># @engineer.JoinEntities.Count</i>
+              @if (flavor.JoinEntities.Count >= 5) {
+                <i class="text-green-400 bx bx-male"># @flavor.JoinEntities.Count</i>
               }
             </td>
           </tr>
