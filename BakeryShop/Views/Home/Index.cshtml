@@ -2,24 +2,45 @@
   Layout = "_Layout";
 }
 
-<section >
-<script>$( document ).ready() {}
-$("#window").hide(3000);
-}); </script>
-  <div class="container mx-80 flex px-5 py-24 items-center justify-center flex-col bg-white opacity-95 text-black transform hover:shadow-2xl rounded-md">
-    <div class="text-center lg:w-2/3 w-full">
-      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-blue-500 font-mono">
-        <h1 id="window">Meet our treats <span class="text-blue-300">Bakery Shop</span></h1>
-        <h2 class="py-3" <span class="text-blue-400"><i class='bx bxs-chevron-right'></i></span> All your favorite <span class="text-blue-300">flavors</span>, try our newest creations. </h2>
-        <p class="leading-relaxed mb-8 text-xl text-gray-300 py-4">
-          <i class='bx bxs-chevrons-down' ></i> Click below to get started adding <i class='bx bxs-chevrons-down' ></i>
-        </p>
-        <div class="text-red-300">
-         <p class="transform hover:scale-125"><i class='bx bxs-right-arrow-alt text-green-300'></i> @Html.ActionLink("Login", "Index", "Account")<i class="text-green-400 bx bx-male"></i> </p>
-         <p class="transform hover:scale-125 group-hover:text-green-300"><i class='bx bxs-right-arrow-alt text-blue-300'></i> @Html.ActionLink("Head over to the treats page  ", "Index", "Treats")<i class="text-purple-400 bx bxs-factory"></i></p>
-         <p class="transform hover:scale-125"><i class='bx bxs-right-arrow-alt text-green-300'></i> @Html.ActionLink("Head over to the flavors page ", "Index", "Flavors")<i class="text-green-400 bx bx-male"></i> </p>
-       </div>
+<section>
+  <script>$(document).ready() { }
+    $("#window").hide(3000);
+});</script>
+  <div
+    class="container mx-80 flex px-5 py-24  flex-col bg-white opacity-95 text-black transform hover:shadow-2xl rounded-md min-h-screen">
+    <div class="text-center lg:w-2/3 w-full items-center justify-center">
+      <h1 class="title-font sm:text-6xl text-3xl mb-4 font-medium text-blue-700 font-mono">
+        <h1 id="window">Welcome to our <span class="text-blue-700">Bakery Shop</span></h1>
+        <h2 class="py-3" <span class="text-blue-400"><i class='bx bxs-chevron-right'></i></span> We have all your <span
+            class="text-blue-700">favorite flavors</span>. Try our newest creations today! </h2>
+        <p class="leading-relaxed mb-8 text-xl text-gray-300 py-4"></p>
+        <div class="text-black">
+          <p class="transform hover:scale-125 group-hover:text-blue-700"><i
+              class='bx bxs-right-arrow-alt text-blue-700'></i>
+            @if (User.Identity.IsAuthenticated == false)
+            {
+              @Html.ActionLink("Sign in and head over to the treats page ", "Index", "Treats")<i
+                class="text-blue-700 bx bxs-cookie"></i>
+            }
+            else
+            {
+              @Html.ActionLink("Treats page", "Index", "Treats")<i class="text-blue-700 bx bxs-cookie"></i>
+            }
+          </p>
+          <p class="transform hover:scale-125 group-hover:text-blue-700"><i
+              class='bx bxs-right-arrow-alt text-blue-700'></i>
+            @if (User.Identity.IsAuthenticated == false)
+            {
+              @Html.ActionLink("Sign in and head over to the flavors page ", "Index", "Flavors")<i
+                class="text-blue-700 bx bxs-dish"></i>
+            }
+            else
+            {
+              @Html.ActionLink("Flavors page", "Index", "Flavors")<i class="text-blue-700 bx bxs-dish"></i>
+            }
+          </p>
         </div>
     </div>
+  </div>
   </div>
 </section>
