@@ -1,8 +1,10 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace BakeryShop.Models
 {
-  public class BakeryShopContext : DbContext
+  public class BakeryShopContext : IdentityDbContext<ApplicationUser>
   {
     public DbSet<Flavor> Flavors {get; set;}
     public DbSet<Treat> Treats {get; set;}
@@ -14,3 +16,4 @@ namespace BakeryShop.Models
     }
   }
 }
+

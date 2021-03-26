@@ -1,0 +1,28 @@
+@using BakeryShop.Models;
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Bakery Shop Storefront</title>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="~/css/output.css" />
+  <link rel="stylesheet" href="~/css/site.css" />
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body class="bg-BakeryShop-pattern bg-cover text-black text-4xl">
+    @Html.Partial("Sidebar")
+  <div class="h-2">
+    <div class="transform transition duration-500 hover:scale-110">
+    </div>
+    <div class="text">
+  <div class="float-right mr-28"><a href='/'><img src="https://i.ibb.co/VTY05pt/32fe1b5410ce4c26ac7153e747914f10.png" alt="logo" border="0"></a></div>
+    @RenderBody()
+    <div class="m"> 
+    </div>
+  </div>
+  </div>
+</body>
+</html>

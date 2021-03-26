@@ -70,7 +70,7 @@ namespace BakeryShop.Controllers
 
     public ActionResult AddTreat(int id)
     {
-        var thisTreat = _db.Flavors.FirstOrDefault(Flavor => flavor.FlavorId == id);
+        var thisTreat = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
         ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "TreatName");
         return View(thisTreat);
     }
