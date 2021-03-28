@@ -3,7 +3,7 @@
 }
 
 @model BakeryShop.Models.Flavor
-<div class="min-h-screen py-6 flex flex-col justify-center sm:py-12 bg-gray-400">
+<div class="min-h-screen py-6 flex flex-col justify-center sm:py-12 bg-yellow-300">
   <div class="relative py-3 max-w-screen mx-auto">
     <div class="object-center ">
       <h2>Edit</h2>
@@ -17,8 +17,8 @@
         @Html.LabelFor(model => model.FlavorName)
         @Html.EditorFor(model => model.FlavorName)
 
-        @Html.Label("Select Flavor")
-        @Html.DropDownList("FlavorId")
+        @Html.Label("Select Treat")
+        @Html.DropDownList("TreatId")
 
         <input type="submit" value="Save" />
       }

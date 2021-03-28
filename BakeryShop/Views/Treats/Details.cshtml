@@ -4,32 +4,32 @@
 
 @model BakeryShop.Models.Treat;
 @using System;
-<div class="min-h-screen py-6 flex flex-col justify-center sm:py-12 bg-gray-400">
+<div class="min-h-screen py-6 flex flex-col justify-center sm:py-12 bg-yellow-200">
   <div class="relative py-3 max-w-screen mx-auto">
     <div class="object-center ">
-                  <div class="shadow-lg bg-gray-600 rounded-md transform hover:translate-x-2 hover:shadow-2xl p-10">
-      <h2 class="text-blue-300 font-bold text-center text-5xl">Treat Details</h2>
+                  <div class="shadow-lg bg-red-300 rounded-md transform hover:translate-x-2 hover:shadow-2xl p-10">
+      <h2 class="text-blue-700 font-bold text-center text-5xl">Treat Details</h2>
       <hr class="mb-3">
-      <h3>Treat: <span class="text-purple-500"> @Html.DisplayFor(model => model.TreatName)</span></h3>
-      <li>Desc: <span class="text-red-600">@Model.Description</span></li>
+      <h3>Treat: <span class="text-red-600"> @Html.DisplayFor(model => model.TreatName)</span></h3>
+      <p>Desc: <span class="text-red-600">@Model.Description</span></p>
       @if (@Model.JoinEntities.Count == 0)
       {
         <p>No Treats assigned to a Flavor category</p>
       }
       else
       {
-        <h4 class="text-blue-300 font-bold">Treat @Model.TreatName assigned to the following Flavors:</h4>
+        <h4 class="text-blue-700 font-bold"><span class="text-red-600">@Model.TreatName</span> assigned to the following Flavors:</h4>
          <hr class="mb-3">
         <ul>
           @foreach (var join in Model.JoinEntities)
           {
             
-            <li><span class="">@join.Flavor.FlavorName</span> <i class="text-green-400 bx bx-male"># @join.Flavor.FlavorId</i></li>
+            <li><span class="">@join.Flavor.FlavorName</span> (<i class="text-green-700 bx bx-dish">#@join.Flavor.FlavorId</i>)</li>
           }
         </ul>
       }
       <hr class="my-3 mb-3">
-      <div class="text-blue-300">
+      <div class="text-blue-700">
       <p class="hover:scale-110">@Html.ActionLink("Back to Treats index", "Index")</p>
       <p class="hover:scale-110">@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId })</p>
       <p class="hover:scale-110">@Html.ActionLink("Remove Treat", "Delete", new { id = Model.TreatId })</p>

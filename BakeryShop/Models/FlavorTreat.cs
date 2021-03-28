@@ -7,6 +7,5 @@ namespace BakeryShop.Models
     public int TreatId {get; set;}
     public virtual Flavor Flavor {get; set;}
     public virtual Treat Treat {get; set;}
-
   }
 }

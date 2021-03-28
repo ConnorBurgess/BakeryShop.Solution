@@ -1,13 +1,14 @@
+@using BakeryShop.Models;
+@using System;
+@using System.Linq;
+@model List<BakeryShop.Models.Flavor>;
 @{
   Layout = "_Layout";
 }
 
 <section>
-  <script>$(document).ready() { }
-    $("#window").hide(3000);
-});</script>
   <div
-    class="container mx-80 flex px-5 py-24  flex-col bg-white opacity-95 text-black transform hover:shadow-2xl rounded-md min-h-screen">
+    class="container mx-80 flex px-5 py-24  flex-col bg-white opacity-95 text-black transform hover:shadow-2xl rounded-md">
     <div class="text-center lg:w-2/3 w-full items-center justify-center">
       <h1 class="title-font sm:text-6xl text-3xl mb-4 font-medium text-blue-700 font-mono">
         <h1 id="window">Welcome to our <span class="text-blue-700">Bakery Shop</span></h1>
@@ -29,6 +30,7 @@
           </p>
           <p class="transform hover:scale-125 group-hover:text-blue-700"><i
               class='bx bxs-right-arrow-alt text-blue-700'></i>
+
             @if (User.Identity.IsAuthenticated == false)
             {
               @Html.ActionLink("Sign in and head over to the flavors page ", "Index", "Flavors")<i
@@ -38,6 +40,25 @@
             {
               @Html.ActionLink("Flavors page", "Index", "Flavors")<i class="text-blue-700 bx bxs-dish"></i>
             }
+          <ul>
+            <div class="my-24">
+              <h1 class="py-6 text-red-600 animate-wiggle" > List of Flavors </h1>
+              @foreach (Flavor flavor in Model)
+                {
+                <li>@Html.ActionLink($"{flavor.FlavorName}", "Details", "Flavors", new { id = flavor.FlavorId })</li>
+                }
+
+            <br>
+            </hr>
+            <div id="treat-box">
+              <h1 class="py-6 text-red-600 animate-wiggle"> List of Treats </h1>
+              @foreach (Treat treat in ViewBag.TreatList)
+                {
+                <li>@Html.ActionLink($"{treat.TreatName}", "Details", "Treats", new { id = treat.TreatId })</li>
+                }
+            </div>
+            </div>
+          </ul>
           </p>
         </div>
     </div>

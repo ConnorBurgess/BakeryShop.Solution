@@ -12,7 +12,7 @@ namespace BakeryShop.Models
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly SignInManager<ApplicationUser> _signInManager;
 
-    public AccountController (UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, BakeryShopContext db)
+    public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, BakeryShopContext db)
     {
       _userManager = userManager;
       _signInManager = signInManager;
@@ -34,7 +34,7 @@ namespace BakeryShop.Models
     {
       var user = new ApplicationUser { UserName = model.Email };
       IdentityResult result = await _userManager.CreateAsync(user, model.Password);
-      if(result.Succeeded)
+      if (result.Succeeded)
       {
         return RedirectToAction("Index", "Home");
       }
@@ -53,7 +53,7 @@ namespace BakeryShop.Models
     public async Task<ActionResult> Login(LoginViewModel model)
     {
       Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: true, lockoutOnFailure: false);
-      if(result.Succeeded)
+      if (result.Succeeded)
       {
         return RedirectToAction("Index", "Home");
       }

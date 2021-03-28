@@ -5,16 +5,21 @@
 @using BakeryShop.ViewModels
 
 @model LoginViewModel
+<div class="min-h-screen py-6 flex flex-col justify-center sm:py-12 bg-yellow-300">
+  <div class="relative py-3 max-w-screen mx-auto">
+    <div class="object-center ">
+      <h2>Log in with your account</h2>
+      <hr />
+      @using (Html.BeginForm())
+      {
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email)
 
-<h2>Log in with your account</h2>
-<hr />
-@using (Html.BeginForm())
-{
-    @Html.LabelFor(m => m.Email)
-    @Html.TextBoxFor(m => m.Email)
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password)
 
-    @Html.LabelFor(m => m.Password)
-    @Html.PasswordFor(m => m.Password)
-
-    <input type="submit" value="Log in" class="btn btn-default" />
-}
+        <input type="submit" value="Log in" class="btn btn-default" />
+      }
+    </div>
+  </div>
+</div>
